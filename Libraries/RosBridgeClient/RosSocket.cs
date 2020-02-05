@@ -205,12 +205,12 @@ namespace RosSharp.RosBridgeClient
                 case SerializerEnum.JSON:
                     string json = JsonConvert.SerializeObject(obj);
                     return Encoding.ASCII.GetBytes(json);
-                case SerializerEnum.BSON:
-                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                    Newtonsoft.Json.Bson.BsonDataWriter writer = new Newtonsoft.Json.Bson.BsonDataWriter(ms);
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(writer, obj);
-                    return ms.ToArray();
+                // case SerializerEnum.BSON:
+                //     System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                //     Newtonsoft.Json.Bson.BsonDataWriter writer = new Newtonsoft.Json.Bson.BsonDataWriter(ms);
+                //     JsonSerializer serializer = new JsonSerializer();
+                //     serializer.Serialize(writer, obj);
+                //     return ms.ToArray();
                 default:
                     throw new ArgumentException("Invalid Serializer");
             }
@@ -223,10 +223,10 @@ namespace RosSharp.RosBridgeClient
                 case SerializerEnum.JSON:
                     string ascii = Encoding.ASCII.GetString(buffer, 0, buffer.Length);
                     return JsonConvert.DeserializeObject<T>(ascii);
-                case SerializerEnum.BSON:
-                    System.IO.MemoryStream ms = new System.IO.MemoryStream(buffer);
-                    Newtonsoft.Json.Bson.BsonDataReader reader = new Newtonsoft.Json.Bson.BsonDataReader(ms);
-                    return new JsonSerializer().Deserialize<T>(reader);
+                // case SerializerEnum.BSON:
+                //     System.IO.MemoryStream ms = new System.IO.MemoryStream(buffer);
+                //     Newtonsoft.Json.Bson.BsonDataReader reader = new Newtonsoft.Json.Bson.BsonDataReader(ms);
+                //     return new JsonSerializer().Deserialize<T>(reader);
                 default:
                     throw new ArgumentException("Invalid Serializer");
             }
