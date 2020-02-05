@@ -44,8 +44,8 @@ namespace RosSharp.RosBridgeClient
         }
         private void ProcessMessage()
         {
-            PublishedTransform.position = position;
-            PublishedTransform.rotation = rotation;
+            PublishedTransform.localPosition = position;
+            PublishedTransform.localRotation = rotation;
         }
 
         private Vector3 GetPosition(MessageTypes.Nav.Odometry message)
