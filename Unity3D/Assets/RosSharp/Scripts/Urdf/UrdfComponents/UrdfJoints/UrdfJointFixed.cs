@@ -23,9 +23,10 @@ namespace RosSharp.Urdf
 
         public static UrdfJoint Create(GameObject linkObject)
         {
+            UnityEngine.Joint fj = linkObject.AddComponent<FixedJoint>();
             UrdfJointFixed urdfJoint = linkObject.AddComponent<UrdfJointFixed>();
 
-            urdfJoint.UnityJoint = linkObject.AddComponent<FixedJoint>();
+            urdfJoint.UnityJoint = fj;
             urdfJoint.UnityJoint.autoConfigureConnectedAnchor = true;
 
             return urdfJoint;

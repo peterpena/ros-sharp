@@ -18,7 +18,7 @@ using UnityEngine;
 
 namespace RosSharp.Urdf
 {
-    [RequireComponent(typeof(Joint))]
+    [RequireComponent(typeof(UnityEngine.Joint))]
     public abstract class UrdfJoint : MonoBehaviour
     {
         public enum JointTypes
